@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/H2v02FV/FullBody.jpg",
+    "name": "Full Body Training",
+    "description": "A full-body exercise uses a variety of muscle groups in a person's body, rather than just one. No exercise will work every muscle, but these exercises typically work across the upper body, lower body, and core."
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/VN307Vf/Lower-Body.jpg",
+    "name": "Lower Body Training",
+    "description": "Lower body exercises work the muscles that are below the waist, primarily legs, butt, and thighs. The types of exercise generally are stretching and weight-bearing (resistance) or non-weight-bearing resistance, such as standing calf raises for the lower leg muscles."
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/7293KM1/Chest.jpg",
+    "name": "Chest Training",
+    "description": "Focus on squeezing your pecs. Brace the core, keeping the back down on the bench without arching, while squeezing the pecs, and press the dumbbells back up over the chest to their starting position. Complete 2 to 3 sets of 15 to 20 reps with a medium to heavy weight."
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/tZzy1Xr/ABS.jpg",
+    "name": "ABS Training",
+    "description": "Everyone has abdominal muscles, or “abs.” For well-defined abs, most people will need to lose some body fat around the stomach and then build muscle."
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/g909YmL/ARM.jpg",
+    "name": "ARM Training",
+    "description": "Exercises for the arms are designed to maintain, and in some circumstances increase, strength within the arms and upper body, along with helping to tone and shape the arms. Women often use arm exercises to maintain tone and avoid excess fat accumulation."
+  },
+  {
+    "id": 6,
+    "img": "https://i.ibb.co/j8tLb25/LEG.jpg",
+    "name": "LEG Training",
+    "description": "leg exercise is a exercise that designed to strengthen the leg muscles. types: knee bend, squat, squatting. exercising by repeatedly assuming a crouching position with the knees bent; strengthens the leg muscles."
+  },
+  {
+    "id": 7,
+    "img": "https://i.ibb.co/kMF84FZ/Shoulder-and-Back.jpg",
+    "name": "Shoulder & Back Training",
+    "description": "To increase your shoulder size, focus on the deltoids but practice a full range of exercises. Take little rest between sets and be sure to include some of the following exercises: overhead shoulder press/push press, seated rear lateral raise, face pulls, barbell shrugs, dumbbell front raise, and others"
+  }
+]
