@@ -1,0 +1,31 @@
+.about-us-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.about-us-container img {
+  width: 100%;
+  border-radius: 20px;
+}
+.learn-about-us-text {
+  margin-top: 75px;
+  margin-left: 50px;
+}
+.learn-about-us-text h1 {
+  color: goldenrod;
+  margin-bottom: 15px;
+}
+.learn-about-us-text p {
+  color: rgba(0, 0, 255, 0.825);
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 576px) {
+  .about-us-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .about-us-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

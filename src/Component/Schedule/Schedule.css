@@ -1,0 +1,17 @@
+.schedule-container-one {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.schedule-container-two {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+  margin-left: 25px;
+  margin-bottom: 50px;
+}
+.heading-design {
+  color: goldenrod;
+  margin-left: 180px;
+  margin-top: 50px;
+}
