@@ -9,23 +9,34 @@ import PricesAndPlans from "./Component/PricesAndPlans/PricesAndPlans";
 import Schedule from "./Component/Schedule/Schedule";
 import Trainer from "./Component/Trainer/Trainer";
 import Login from "./Component/Login/Login";
+import AuthProvider from "./contexts/AuthProvider";
+import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
     <div className="">
-      <Router>
-        <Header></Header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/packages" element={<Packages />} />
-          <Route path="/trainer" element={<Trainer />} />
-          <Route path="/pricesandplans" element={<PricesAndPlans />} />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/packages" element={<Packages />} />
+            <Route path="/trainer" element={<Trainer />} />
+            <Route
+              path="/pricesandplans"
+              element={
+                <PrivateRoute>
+                  <PricesAndPlans />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
