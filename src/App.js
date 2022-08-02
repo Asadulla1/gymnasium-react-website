@@ -11,6 +11,7 @@ import Trainer from "./Component/Trainer/Trainer";
 import Login from "./Component/Login/Login";
 import AuthProvider from "./contexts/AuthProvider";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
+import Registration from "./Component/Registration/Registration";
 
 function App() {
   return (
@@ -21,7 +22,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/packages" element={<Packages />} />
+            <Route
+              path="/packages"
+              element={
+                <PrivateRoute>
+                  <Packages />
+                </PrivateRoute>
+              }
+            />
             <Route path="/trainer" element={<Trainer />} />
             <Route
               path="/pricesandplans"
@@ -31,8 +39,16 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route path="/schedule" element={<Schedule />} />
+            <Route
+              path="/schedule"
+              element={
+                <PrivateRoute>
+                  <Schedule />
+                </PrivateRoute>
+              }
+            />
             <Route path="/login" element={<Login />} />
+            {/* <Route path="/registration" element={<Registration />} /> */}
           </Routes>
           <Footer></Footer>
         </Router>
