@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardGroup } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import Package from "../Package/Package";
 import "./Packages.css";
 const Packages = () => {
   const [packages, setPackages] = useState([]);
   useEffect(() => {
-    fetch("packages.json")
+    fetch(`packages.json`)
       .then((res) => res.json())
       .then((data) => setPackages(data));
   }, []);

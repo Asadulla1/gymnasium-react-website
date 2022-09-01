@@ -11,7 +11,10 @@ import Trainer from "./Component/Trainer/Trainer";
 import Login from "./Component/Login/Login";
 import AuthProvider from "./contexts/AuthProvider";
 import PrivateRoute from "./Component/PrivateRoute/PrivateRoute";
-import Registration from "./Component/Registration/Registration";
+
+import Register from "./Component/Register/Register";
+import PackageDetails from "./Component/Packages/PackageDetails";
+import NotFound from "./Component/404Page/NotFound";
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/registration" element={<Register />} />
             <Route
               path="/packages"
               element={
@@ -30,6 +34,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route path="/package/:packageId" element={<PackageDetails />} />
             <Route path="/trainer" element={<Trainer />} />
             <Route
               path="/pricesandplans"
@@ -48,7 +53,7 @@ function App() {
               }
             />
             <Route path="/login" element={<Login />} />
-            {/* <Route path="/registration" element={<Registration />} /> */}
+            <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer></Footer>
         </Router>

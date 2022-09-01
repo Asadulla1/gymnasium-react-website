@@ -1,24 +1,19 @@
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  updateProfile,
+} from "firebase/auth";
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/UseAuth";
-import { Form, Button } from "react-bootstrap";
-import useFirebase from "../hooks/UseFirebase";
-import { Link } from "react-router-dom";
-import "./Login.css";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
-const Login = () => {
-  const { signInUsingGoogle, auth } = useAuth();
+const Register = () => {
+  const auth = getAuth();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const location = useLocation();
-  const history = useNavigate();
-  const redirect_url = location.state?.from;
-  const handleGoogleSignIn = () => {
-    signInUsingGoogle().then((result) => {
-      history(redirect_url);
-    });
+
+  const handleName = (e) => {
+    setName(e.target.value);
   };
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -26,18 +21,24 @@ const Login = () => {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-  const processLogin = (email, password) => {
-    signInWithEmailAndPassword(auth, email, password)
+  const setUserName = () => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    }).then((result) => {});
+  };
+  const createNewUser = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
-        console.log("Login Successful");
-        history(redirect_url);
         setError("");
+        console.log(user);
+        setUserName();
       })
       .catch((error) => {
         setError(error.message);
       });
   };
+
   const handleRegistration = (e) => {
     e.preventDefault();
     console.log(email, password);
@@ -49,13 +50,28 @@ const Login = () => {
       setError("Password must contains 2 uppercase letter");
       return;
     }
-    processLogin(email, password);
+    createNewUser(email, password);
   };
-
   return (
     <div className="mx-5 my-5">
+      <h1 className="text-center text-color">Register Form Page</h1>
       <form onSubmit={handleRegistration}>
-        <h1 className="text-primary my-5">Please Login</h1>
+        <h1 className="text-primary my-5">Please Register</h1>
+        <div className="row mb-3">
+          <label htmlFor="inputName" className="col-sm-2 col-form-label ">
+            Name
+          </label>
+          <div className="col-sm-10">
+            <input
+              onBlur={handleName}
+              type="name"
+              className="form-control"
+              id="inputName"
+              required
+            />
+          </div>
+        </div>
+
         <div className="row mb-3">
           <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">
             Email
@@ -91,27 +107,13 @@ const Login = () => {
           <div className="col-sm-10 offset-sm-2"></div>
           <div className="row mb-3 text-danger">{error}</div>
         </div>
-        <div className="my-3 text-center">
-          <h4 className="text-color">
-            New User? <Link to="/registration">Please Register</Link>
-          </h4>
-        </div>
-        <div className="text-center">
-          <button type="submit" className="btn btn-primary my-3 ">
-            Login
-          </button>
-        </div>
-      </form>
-      <div className="my-3 text-center text-color">
-        <h1>OR</h1>
-      </div>
-      <div className="text-center my-3">
-        <button className="btn btn-primary" onClick={handleGoogleSignIn}>
-          Login Using Google
+        <button type="submit" className="btn btn-primary my-3">
+          Register
         </button>
-      </div>
+      </form>
+      <h4 className="text-center text-color">Thank you for registration</h4>
     </div>
   );
 };
 
-export default Login;
+export default Register;
