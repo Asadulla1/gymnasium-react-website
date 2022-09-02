@@ -6,8 +6,10 @@ const PrivateRoute = ({ children, ...rest }) => {
   let location = useLocation();
   if (isLoading) {
     return (
-      <div class="spinner-grow text-success" role="status">
-        <span class="visually-hidden">Loading...</span>
+      <div className="App my-5">
+        <div class="spinner-grow text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
   }

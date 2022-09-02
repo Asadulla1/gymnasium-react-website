@@ -8,19 +8,17 @@ import "./Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
-  const { signInUsingGoogle, auth, isLoading, setLoading } = useAuth();
+  const { signInUsingGoogle, auth, setLoading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const location = useLocation();
   const history = useNavigate();
-  const redirect_url = location.state?.from;
+  const redirect_url = location.state?.from || "/home";
   const handleGoogleSignIn = () => {
-    signInUsingGoogle()
-      .then((result) => {
-        history(redirect_url);
-      })
-      .finally(() => setLoading(false));
+    signInUsingGoogle().then((result) => {
+      history(redirect_url);
+    });
   };
   const handleEmail = (e) => {
     setEmail(e.target.value);

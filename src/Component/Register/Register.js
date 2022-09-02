@@ -4,6 +4,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const auth = getAuth();
@@ -11,7 +12,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const history = useNavigate();
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -33,6 +34,7 @@ const Register = () => {
         setError("");
         console.log(user);
         setUserName();
+        history("/home");
       })
       .catch((error) => {
         setError(error.message);
